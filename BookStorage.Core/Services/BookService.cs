@@ -2,6 +2,7 @@
 using BookStorage.Core.Models;
 using BookStorage.Core.Repositories;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography;
 
 namespace BookStorage.Core.Services
 {

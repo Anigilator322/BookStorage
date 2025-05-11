@@ -12,23 +12,6 @@ namespace BookStorage.Core.Models
         public int Year { get; set; }
         public string Description { get; set; }
         public string FilePath { get; set; }
-        
-        private byte[] _bookFileBytes;
-        [BsonIgnore]
-        public byte[] BookFileBytes 
-        {
-            get
-            {
-                if(_bookFileBytes is null || _bookFileBytes.Length == 0)
-                {
-                    var filePath = Path.Combine("wwwroot", "books", FilePath);
-                    if (!System.IO.File.Exists(filePath)) return Array.Empty<byte>();
-
-                    _bookFileBytes = System.IO.File.ReadAllBytes(filePath);
-                }
-                return _bookFileBytes;
-            } 
-        }
 
         public BookDto GetDto()
         {

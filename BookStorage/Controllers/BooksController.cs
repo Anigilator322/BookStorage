@@ -1,6 +1,4 @@
 using BookStorage.Core.Dtos;
-using BookStorage.Core.Models;
-using BookStorage.Core.Repositories;
 using BookStorage.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,7 +38,8 @@ namespace BookStorage.Controllers
             var book = _bookService.GetById(id);
             var filePath = Path.Combine("wwwroot", "books", book.FilePath);
             if (!System.IO.File.Exists(filePath)) return NotFound();
-            return File(book.BookFileBytes, "application/octet-stream", Path.GetFileName(filePath));
+            var bytes = System.IO.File.ReadAllBytes(filePath);
+            return File(bytes, "application/octet-stream", Path.GetFileName(filePath));
         }
 
         [HttpPost]
