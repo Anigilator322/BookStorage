@@ -1,0 +1,15 @@
+﻿<Window x:Class="BookStorageApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookStorageApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="SearchBox" Margin="10,0,590,369" Height="40" VerticalAlignment="Bottom"/>
+        <Button Content="Search" Margin="233,0,487,369" Click="OnSearchClick" Height="40" VerticalAlignment="Bottom"/>
+        <ListBox x:Name="BooksList" Margin="10,99,10,122" DisplayMemberPath="Title" SelectionChanged="BooksList_SelectionChanged"/>
+        <Button Content="Download" Height="30" VerticalAlignment="Bottom" Click="OnDownloadClick"/>
+    </Grid>
+</Window>

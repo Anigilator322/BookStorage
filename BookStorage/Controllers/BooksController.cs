@@ -18,7 +18,7 @@ namespace BookStorage.Controllers
         }
 
         [HttpGet]
-        public IActionResult Search([FromQuery] string query)
+        public IActionResult Search([FromQuery] string? query)
         {
             var results = _bookService.Search(string.IsNullOrEmpty(query) ? "" : query);
             var dtos = results.Select(x => x.GetDto()).ToList();
